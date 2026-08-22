@@ -281,14 +281,14 @@ License: MIT
 
 <div class="hero">
   <div class="hero-inner">
-    <div class="eyebrow"><span class="dot"></span> Sistem Informasi Keuangan Desa · Implementasi Studi Independen KPPN Madiun</div>
+    <div class="eyebrow"><span class="dot"></span> Sistem Informasi Keuangan Desa Purwosari · Implementasi Studi Independen KPPN Madiun</div>
     <h1>Realisasi Penyaluran Dana Desa &amp; APBDes Purwosari</h1>
-    <p>Kecamatan Kwadungan, Kabupaten Ngawi. Halaman ini merangkum dari mana pendapatan desa berasal dan untuk apa dana tersebut digunakan, disusun dari dokumen resmi penyaluran dan realisasi Dana Desa.</p>
+    <p>Kecamatan Kwadungan, Kabupaten Ngawi. Halaman ini merangkum dari pendapatan dan penyerasan dana desa, disusun dari dokumen resmi penyaluran dan realisasi Dana Desa.</p>
     <div class="hero-controls">
       <select id="tahunSelect">
         <option value="2026">Tahun Anggaran 2026</option>
       </select>
-      <span class="hero-badge">Sumber: RKUN-RKD · Laporan Realisasi Dana Desa · APBDes Perdes No.15/2025</span>
+      <span class="hero-badge">Sumber: RKUN-RKD · Laporan Realisasi Dana Desa</span>
     </div>
     <div id="dataSourceStatus" style="margin-top:12px; font-size:11.5px; color:#9fb8ad; font-family:ui-monospace, monospace;">Memuat data…</div>
   </div>
@@ -327,8 +327,8 @@ License: MIT
     <div class="section-head">
       <div>
         <div class="section-num">01 — Sumber Pendapatan</div>
-        <h2>Dari mana pendapatan desa berasal</h2>
-        <div class="desc">Selain Dana Desa yang disalurkan KPPN, desa juga memperoleh pendapatan dari sumber lain sesuai APBDes.</div>
+        <h2>Sumber Pendapatan Desa</h2>
+        <div class="desc">Selain Dana Desa RKUN-RKD, desa juga memperoleh pendapatan dari sumber lain sesuai APBDes.</div>
       </div>
     </div>
     <div class="chart-grid">
@@ -355,7 +355,7 @@ License: MIT
     <div class="section-head">
       <div>
         <div class="section-num">02 — Penyaluran &amp; Penggunaan</div>
-        <h2>Dana Desa dari KPPN digunakan untuk apa</h2>
+        <h2>Penggunaan Dana Desa dari RKUN-RKD</h2>
         <div class="desc">Klik baris kegiatan untuk melihat rincian volume, cara pengadaan, dan capaian keluarannya.</div>
       </div>
     </div>
@@ -363,7 +363,6 @@ License: MIT
     <div class="chart-grid" style="margin-bottom:22px;">
       <div class="panel">
         <h3>Realisasi Salur per Tahap</h3>
-        <div class="hint">Tahap III TA 2026 belum disalurkan</div>
         <div class="chart-box"><canvas id="chartTahap"></canvas></div>
       </div>
       <div class="panel">
@@ -405,7 +404,7 @@ License: MIT
     <div class="section-head">
       <div>
         <div class="section-num">03 — APBDes</div>
-        <h2>Asal dana &amp; penggunaan per bidang</h2>
+        <h2>Asal dana &amp; Penggunaan per bidang</h2>
         <div class="desc">Lima bidang belanja standar desa beserta sumber dana utamanya menurut APBDes Purwosari TA 2026.</div>
       </div>
     </div>
@@ -441,8 +440,8 @@ License: MIT
 </div>
 
 <footer>
-  Data disusun dari dokumen resmi: Data Penyaluran Dana Desa (RKUN–RKD) Ditjen Perbendaharaan, Laporan Realisasi Penyerapan &amp; Capaian Keluaran Dana Desa Tahap I TA 2026, dan Peraturan Desa Purwosari No. 15 Tahun 2025 tentang APBDes.<br>
-  Prototipe mini project — Studi Independen di KPPN Madiun. Data Tahap II–III akan diperbarui setelah laporan resmi tersedia.
+  Data disusun dari dokumen resmi: Data Penyaluran Dana Desa (RKUN–RKD) Ditjen Perbendaharaan dan Laporan Realisasi Anggaran.<br>
+  Prototipe mini project — Studi Independen di KPPN Madiun COPYRIGHT@Suci Rahmawati
 </footer>
 
 <script>
@@ -461,10 +460,10 @@ License: MIT
 const CONFIG = {
   tahunAktif: "2026",
   sheets: {
-    pendapatan: "",   // contoh: "https://docs.google.com/spreadsheets/d/e/XXXX/pub?gid=0&single=true&output=csv"
-    penyaluran: "",
-    penyerapan: "",
-    apbdes: "",
+    pendapatan: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTTBFyLjwu7vnLyrOOQfqUY_YeJ03elaTsU3b-H0KZLhVnaG1vX2qwFcZXTeu_LEQRBKKz6295TR5iC/pub?gid=0&single=true&output=csv",   
+    penyaluran: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTTBFyLjwu7vnLyrOOQfqUY_YeJ03elaTsU3b-H0KZLhVnaG1vX2qwFcZXTeu_LEQRBKKz6295TR5iC/pub?gid=52121482&single=true&output=csv",
+    penyerapan: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTTBFyLjwu7vnLyrOOQfqUY_YeJ03elaTsU3b-H0KZLhVnaG1vX2qwFcZXTeu_LEQRBKKz6295TR5iC/pub?gid=782590356&single=true&output=csv",
+    apbdes: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTTBFyLjwu7vnLyrOOQfqUY_YeJ03elaTsU3b-H0KZLhVnaG1vX2qwFcZXTeu_LEQRBKKz6295TR5iC/pub?gid=186535380&single=true&output=csv",
   }
 };
 
@@ -475,7 +474,7 @@ const CONFIG = {
 const FALLBACK = {
   pendapatan: [
     { nama:"Pendapatan Asli Desa", anggaran:743320000, realisasi:null, status:"none" },
-    { nama:"Dana Desa (dari KPPN)", anggaran:338456000, realisasi:338456000, status:"high" },
+    { nama:"Dana Desa", anggaran:338456000, realisasi:338456000, status:"high" },
     { nama:"Transfer Lainnya (ADD, Bagi Hasil Pajak/Retribusi, Bantuan Keuangan)", anggaran:1019195580, realisasi:null, status:"none" },
     { nama:"Pendapatan Lain-lain yang Sah", anggaran:600000, realisasi:null, status:"none" },
   ],
