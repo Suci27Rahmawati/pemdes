@@ -573,7 +573,23 @@ async function loadData(){
    ============================================================ */
 function renderDashboard(data){
   const { pendapatan, tahap, kegiatan, bidang } = data;
+  // ---------- KARTU RINGKASAN (HERO) — dihitung otomatis dari data ----------
+  const totalAnggaranPendapatan = pendapatan.reduce((s,p)=>s+p.anggaran, 0);
+  const totalRealisasiDanaDesa = tahap.reduce((s,t)=>s+t.realisasi, 0);
+  const totalAnggaranBelanja = bidang.reduce((s,b)=>s+b.anggaran, 0);
+  const totalRealisasiBelanja = kegiatan.reduce((s,k)=>s+k.realisasi, 0);
+  const persenSerapan = totalRealisasiDanaDesa > 0 ? (totalRealisasiBelanja/totalRealisasiDanaDesa*100) : 0;
+  const tahapAktif = tahap.filter(t=>t.realisasi>0).map(t=>t.label.replace("Tahap ",""));
+  const tahapBadgeText = tahapAktif.length ? tahapAktif.join("-") : "-";
 
+  document.getElementById("cardAnggaranPendapatan").textContent = rupiah(totalAnggaranPendapatan);
+  document.getElementById("cardRealisasiDanaDesa").textContent = rupiah(totalRealisasiDanaDesa);
+  document.getElementById("cardAnggaranBelanja").textContent = rupiah(totalAnggaranBelanja);
+  document.getElementById("cardRealisasiBelanja").textContent = rupiah(totalRealisasiBelanja);
+  document.getElementById("cardTahapBadge").innerHTML = "Tahap<br>" + tahapBadgeText;
+  document.getElementById("cardSerapanBadge").innerHTML = pct(persenSerapan) + "<br>salur";
+  document.getElementById("cardKegiatanCount").textContent = kegiatan.length + " kegiatan yang telah dilaporkan";
+  
   new Chart(document.getElementById("chartPendapatan"), {
     type:"doughnut",
     data:{
